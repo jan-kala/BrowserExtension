@@ -1,0 +1,7 @@
+{
+   "name": "com.kala.anotator",
+   "description": "Native Messaging Host - Anotator Daemon",
+   "path": "\/Users\/jan.kala\/Repos\/school\/Anotator\/Daemon\/HTTPDataReceiver\/native_messaging_host_example.py",
+   "type": "stdio",
+   "allowed_origins": ["chrome-extension:\/\/cnakigiccplcoefoeolllpljbmaidoeh\/"]
+ }
