@@ -39,10 +39,13 @@ fi
 
 sudo cp "$MANIFEST_LOCATION" "$CORRECT_DIR"
 
+# Stage 2: Prepare folders and files
+sudo mkdir -p /usr/local/bin/WebAnnotator
+mkdir -p /tmp/WebAnnotator
+
 # Stage 2: Copy bin into correct place
 RESENDER_BINARY_LOCATION=../Daemons/HTTPDataReceiver/build/HTTPDataResender 
 
-sudo mkdir -p /usr/local/bin/WebAnnotator
 sudo cp "$RESENDER_BINARY_LOCATION" /usr/local/bin/WebAnnotator/
 
 # Cleanup
