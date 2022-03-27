@@ -10,6 +10,7 @@ cd "$(dirname "$0")"
 MANIFEST_LOCATION=NativeMessagingHostsManifest/Firefox/com.kala.annotator.json
 USER=$(whoami)
 
+# Check the user privileges - we need his name (macos)
 if [ "$USER" == "root" ]; then 
     echo "Don't run this as sudo! you'll be prompted for sudo password if needed."
     exit 1
@@ -36,7 +37,7 @@ then
     fi
 fi    
 
-cp "$MANIFEST_LOCATION" "$CORRECT_DIR"
+sudo cp "$MANIFEST_LOCATION" "$CORRECT_DIR"
 
 # Stage 2: Copy bin into correct place
 RESENDER_BINARY_LOCATION=../Daemons/HTTPDataReceiver/build/HTTPDataResender 
