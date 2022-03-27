@@ -1,38 +1,48 @@
+#
+# Script that copies Native Messaging manifest into the correct directory
+# Currently supports Linux and OSX
+#
+
+# working location will be from the script
+PREV_PWD=$(pwd)
+cd "$(dirname "$0")"
+
+MANIFEST_LOCATION=NativeMessagingHostsManifest/Firefox/com.kala.annotator.json
+USER=$(whoami)
+
+if [ "$USER" == "root" ]; then 
+    echo "Don't run this as sudo! you'll be prompted for sudo password if needed."
+    exit 1
+fi
+
+# Stage 1 : Copy Manifest into correct place
+
+LINUX_PATH1="/usr/lib/mozilla/native-messaging-hosts/"
+LINUX_PATH2="/usr/lib64/mozilla/native-messaging-hosts/"
+MACOS_PATH1="/Library/Application Support/Mozilla/NativeMessagingHosts"
+MACOS_PATH2="/Users/$USER/Library/Application Support/Mozilla/NativeMessagingHosts"
+
 if [[ "$OSTYPE" == "linux-gnu"* ]] 
 then
     # Linux paths
-    if [ -d "/usr/lib/mozilla/native-messaging-hosts/" ] 
-    then
-        cp NativeMessagingHostsManifest/Firefox/com.kala.anotator.json /usr/lib/mozilla/native-messaging-hosts/
-    elif [ -d "/usr/lib64/mozilla/native-messaging-hosts/" ] 
-    then
-        cp NativeMessagingHostsManifest/Firefox/com.kala.anotator.json /usr/lib64/mozilla/native-messaging-hosts/
+    if [ -d "$LINUX_PATH1" ]; then CORRECT_DIR="$LINUX_PATH1"
+    elif [ -d "$LINUX_PATH2" ]; then CORRECT_DIR="$LINUX_PATH2"
     fi
 elif [[ "$OSTYPE" == "darwin"* ]] 
 then
-    echo "Ahoj"
     # Mac OSX
-    if [ -d "/Library/Application Support/Mozilla/NativeMessagingHosts" ] 
-    then
-        cp NativeMessagingHostsManifest/Firefox/com.kala.anotator.json /Library/Application\ Support/Mozilla/NativeMessagingHosts/
-    elif [ -d "/Users/$(whoami)/Library/Application Support/Mozilla/NativeMessagingHosts" ] 
-    then
-        echo "Ahoj"
-        cp NativeMessagingHostsManifest/Firefox/com.kala.anotator.json ~/Library/Application\ Support/Mozilla/NativeMessagingHosts/
+    if [ -d "$MACOS_PATH1" ]; then CORRECT_DIR="$MACOS_PATH1"
+    elif [ -d "$MACOS_PATH2" ]; then CORRECT_DIR="$MACOS_PATH2"
     fi
-elif [[ "$OSTYPE" == "cygwin" ]]; then
-        # POSIX compatibility layer and Linux environment emulation for Windows
-        ls
-elif [[ "$OSTYPE" == "msys" ]]; then
-        # Lightweight shell and GNU utilities compiled for Windows (part of MinGW)
-        ls
-elif [[ "$OSTYPE" == "win32" ]]; then
-        # I'm not sure this can happen.
-        ls
-elif [[ "$OSTYPE" == "freebsd"* ]]; then
-        # ...
-        ls
-else
-        # Unknown
-        ls
 fi    
+
+cp "$MANIFEST_LOCATION" "$CORRECT_DIR"
+
+# Stage 2: Copy bin into correct place
+RESENDER_BINARY_LOCATION=../Daemons/HTTPDataReceiver/build/HTTPDataResender 
+
+sudo mkdir -p /usr/local/bin/WebAnnotator
+sudo cp "$RESENDER_BINARY_LOCATION" /usr/local/bin/WebAnnotator/
+
+# Cleanup
+cd "$PREV_PWD"

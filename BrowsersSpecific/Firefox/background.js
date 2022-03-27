@@ -18,5 +18,5 @@ chrome.webRequest.onCompleted.addListener(sendDataToSysProcess,
 );
 
 // Connect to the Native Message Host
-port = chrome.runtime.connectNative("com.kala.anotator");
+port = chrome.runtime.connectNative("com.kala.annotator");
 port.onMessage.addListener(onNativeMessageReceived)

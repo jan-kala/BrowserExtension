@@ -1,12 +1,12 @@
 {
     "manifest_version": 2,
-    "name": "Kala Browser Anotator",
-    "description": "Anotates web traffic coming from/to the browser.",
+    "name": "Kala Browser Annotator",
+    "description": "Annotates web traffic coming from/to the browser.",
     "version": "1.0.0",
 
     "browser_specific_settings": {
       "gecko": {
-        "id": "kala@anotator.com"
+        "id": "kala@annotator.com"
       }
     },
 
