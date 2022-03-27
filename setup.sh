@@ -1,1 +1,0 @@
- cp NativeMessagingHostsManifest/com.kala.anotator.json ~/Library/Application\ Support/Google/Chrome/NativeMessagingHosts/    
