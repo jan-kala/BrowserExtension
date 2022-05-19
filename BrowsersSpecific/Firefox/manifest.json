@@ -13,6 +13,7 @@
     "permissions": [
       "nativeMessaging",
       "webRequest",
+      "webRequestBlocking",
       "<all_urls>"
     ],
 
