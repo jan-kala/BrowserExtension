@@ -1,8 +1,0 @@
-{
-  "name": "com.kala.annotator",
-  "description": "Native Messaging Host - Annotator Daemon",
-  "path": "{INSTALL_LOCATION}\/dist\/bin\/HttpDataReSender",
-  "type": "stdio",
-  "allowed_origins": ["chrome-extension:\/\/cnakigiccplcoefoeolllpljbmaidoeh\/"]
-}
-

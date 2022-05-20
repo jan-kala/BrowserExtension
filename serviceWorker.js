@@ -91,6 +91,6 @@ chrome.webRequest.onErrorOccurred.addListener(
 );
 
 // Connect to the Native Message Host
-nativeMessagingPort = chrome.runtime.connectNative("com.kala.annotator");
+nativeMessagingPort = chrome.runtime.connectNative("com.webtraffic.annotator");
 nativeMessagingPort.onMessage.addListener(onNativeMessageReceived)
 

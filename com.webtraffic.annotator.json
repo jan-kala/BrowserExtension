@@ -1,0 +1,8 @@
+{
+  "name": "com.webtraffic.annotator",
+  "description": "Web Traffic Annotator - Native Messaging Host",
+  "path": "/tmp\/HttpDataReSender",
+  "type": "stdio",
+  "allowed_origins": ["chrome-extension:\/\/cnakigiccplcoefoeolllpljbmaidoeh\/"]
+}
+
