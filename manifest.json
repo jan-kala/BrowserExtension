@@ -1,6 +1,6 @@
 {
     "manifest_version": 3,
-    "name": "Web Traffic Anotator",
+    "name": "Web Traffic Annotator",
     "description": "Provides metadata about requests and responses to the Web Traffic Annotator, that pairs these data with network flow identification.",
     "version": "1.0.0",
     "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0T4HFLlAdbD0aJ/jPZu4Na0KM9H8M+zZR50b+PzZqwOzDRr/3S9ojJEIVZO2BDRU5deqpH5/GykAPiHBTQ2zo3XsH0BiQCBCG95Ul8oFF0f8jVVp0agLQLhbC8GrFLGYSY3m67Cdj1WMuteQeHsL3/jrEkTCFWVTDV5wECxyceYItZdWJSRCFT6QHXSfglngcq/mNFJTukMZnyo30sVGIji7tRAG+rf5BiZd6KLGgb6ok1cvP4jWHmxNrXnLC4hOPkm7UXLvRfBPG4tFzf5W5hxsW0grfx5a98HhKElMxR1Gl02xwSCvk4Req25hafL7NgPQ/9Lm96MzpHbhPWrmzQIDAQAB",
